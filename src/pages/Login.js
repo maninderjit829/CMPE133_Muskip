@@ -16,7 +16,7 @@ const Login = () => {
     const navigate = useHistory();
     useEffect(() => {
         if(currentUser){
-            navigate("/");
+            navigate.push("/");
         }
     }, [currentUser, navigate]);
     const dispatch = useDispatch();
