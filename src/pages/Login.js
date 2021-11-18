@@ -1,6 +1,6 @@
 import React ,{useState, useEffect } from 'react'
 import {useDispatch, useSelector } from "react-redux"
-import {useNavigate, Link } from "react-router-dom"
+import {useHistory, Link } from "react-router-dom"
 import { fbSignInInitiate, googleSignInInitiate, loginInitiate } from '../redux/actions';
 import "./Login.css";
 
@@ -13,7 +13,7 @@ const Login = () => {
 
     const {currentUser} = useSelector((state) => state.user);
 
-    const navigate = useNavigate();
+    const navigate = useHistory();
     useEffect(() => {
         if(currentUser){
             navigate("/");
