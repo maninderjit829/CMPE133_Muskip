@@ -1,8 +1,9 @@
+
 #register-form {
     width: 412px;
     margin: 10vh auto;
-    background-color: #f3f3f3;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background-color: #585858;
+   
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   #register-form form {
@@ -48,6 +49,12 @@
     padding-top: 10px;
     color: lightseagreen;
   }
+  .intro {
+    color: white;
+    font-size: 29px;
+    margin-bottom: 50px;
+    margin-top: -10px;
+  }
   
   #logreg-form .lines {
     width: 200px;
@@ -55,7 +62,9 @@
   }
   
   #register-form button[type="submit"] {
-    margin-top: 10px;
+    margin-top: 30px;
+    background-color: red;
+    border-color: red;
   }
   
   #register-form .facebook-btn {

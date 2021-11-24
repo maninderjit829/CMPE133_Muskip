@@ -41,13 +41,14 @@ const Register = () => {
             <div id="register-form">
                 <form className="form-signup" onSubmit={handleSubmit}>
                     <h1 className="h3 mb-3 font-weight-normal" style={{ textAlign: "center"}}>
-                        Sign up
+                        Muskip
                     </h1>
+                    <p className="intro">Sign up for better listening</p>
                     <input 
                         type="text"
                         id="displayName"
                         className="form-control"
-                        placeholder="Full Name"
+                        placeholder="Userame"
                         name="displayName"
                         onChange={handleChange}
                         value ={displayName}

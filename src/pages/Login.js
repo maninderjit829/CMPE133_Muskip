@@ -3,6 +3,7 @@ import {useDispatch, useSelector } from "react-redux"
 import {useHistory, Link } from "react-router-dom"
 import { fbSignInInitiate, googleSignInInitiate, loginInitiate } from '../redux/actions';
 import "./Login.css";
+import googleimg from "../img/google.png"
 
 const Login = () => {
     const [state, setState ] = useState({
@@ -46,18 +47,26 @@ const Login = () => {
             <div id="logreg-forms">
                 <form className="form-signin" onSubmit={handleSubmit}>
                     <h1 className="h3 mb-3 font-weight-normal" style={{ textAlign: "center"}}>
-                        Sign in
+                        Muskip
                     </h1>
                     <div className="social-login">
                         <button className="btn google-btn social-btn" type="button" onClick={handleGoogleSignIn}>
-                            <span>
-                                <i className="fab fa-google-plus-g"></i>Sign in with Google+
-                            </span>
+                            <div>
+                                <span className="socialText" >
+                                    {/* <i className="fab fa-google-plus-g"></i> */}
+                                    <img className="logo" src={googleimg} alt="google"/> 
+                                      Continue with Google
+                                </span>
+                            </div>
                         </button>
                         <button className="btn facebook-btn social-btn" type="button" onClick={handleFBSignIn}>
-                            <span>
-                                <i className="fab fa-facebook-f"></i>Sign in with Facebook
-                            </span>
+                            <div>
+                                <span className="socialText">
+                                    <i className="fab fa-facebook-f"></i>  
+                                    {/* <img className="fb_logo" src={fbimg} alt="fb"/>  */}
+                                        Continue with Facebook
+                                </span>
+                            </div>
                         </button>
                     </div>
                     <p style={{textAlign: "center"}}>OR</p>
@@ -85,7 +94,7 @@ const Login = () => {
                         <i className="fas fa-sign-in-alt"></i> Sign In
                     </button>
                     <hr/>
-                    <p>Don't have an account</p>
+                    <p>Don't have an account?</p>
                     <Link to="/register">
                         <button className="btn btn-primary btn-block" type="button" id="btn-signup">
                             <i className="fas fa-user-plus"></i>Sign up New Account

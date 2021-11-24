@@ -1,15 +1,27 @@
-.App {
-    text-align: center;
-  }
-  
 
-  
+
+  @import url('https://fonts.googleapis.com/css?family=MuseoModerno');
+
+  @font-face {
+    font-family: 'MuseoModerno:400', cursive;
+    src: url('https://fonts.googleapis.com/css?family=MuseoModerno');
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .App-logo {
       animation: App-logo-spin infinite 20s linear;
     }
   }
-  
+
+  .App {
+    text-align: center;
+    font-family: 'MuseoModerno';
+    
+  }
+
+  .body{
+    background-color: #585858;
+  }
   .App-header {
     background-color: #282c34;
     min-height: 100vh;
