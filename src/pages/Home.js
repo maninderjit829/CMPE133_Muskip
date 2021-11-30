@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify';
 import { logoutInitiate } from '../redux/actions';
 const Home = () => {
     const {currentUser} = useSelector((state) => state.user);
@@ -7,6 +8,7 @@ const Home = () => {
     const handleAuth = () => {
         if(currentUser){
             dispatch(logoutInitiate());
+            return toast.success("Logout successfully")
         }
     }
 
