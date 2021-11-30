@@ -3,8 +3,9 @@ import {useDispatch, useSelector } from "react-redux"
 import {useHistory, Link } from "react-router-dom"
 import { registerInitiate } from '../redux/actions';
 import "./Register.css";
+import {ToastContainer, toast } from 'react-toastify';
 
-const Register = () => {
+const Register = ({registerUser}) => {
     const [state, setState ] = useState({
         displayName: "",
         email: "",
@@ -16,7 +17,7 @@ const Register = () => {
     const navigate = useHistory();
     useEffect(() => {
         if(currentUser){
-            navigate("/");
+            navigate.push("/");
         }
     }, [currentUser, navigate]);
 
@@ -26,10 +27,17 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(password !== passwordConfirm){
-            return;
+            return toast.error("Your password and confirmation password do not match.");
+        } 
+        if( password.length < 6 ){
+            return toast.error("Password must be 6 or more charaters!");
         }
         dispatch(registerInitiate(email, password, displayName ));
         setState({ email: "", displayName: "", password: "", passwordConfirm: "" })
+        const data = {
+            email, password
+        }
+        registerUser(data);
     }
 
     const handleChange = (e) => {
@@ -38,6 +46,7 @@ const Register = () => {
     }
     return (
         <div>
+        <ToastContainer />
             <div id="register-form">
                 <form className="form-signup" onSubmit={handleSubmit}>
                     <h1 className="h3 mb-3 font-weight-normal" style={{ textAlign: "center"}}>

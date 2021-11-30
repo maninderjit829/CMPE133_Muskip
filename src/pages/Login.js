@@ -4,8 +4,10 @@ import {useHistory, Link } from "react-router-dom"
 import { fbSignInInitiate, googleSignInInitiate, loginInitiate } from '../redux/actions';
 import "./Login.css";
 import googleimg from "../img/google.png"
+import {ToastContainer, toast } from 'react-toastify';
 
-const Login = () => {
+
+const Login = ({loginUser}) => {
     const [state, setState ] = useState({
         email: "",
         password: "",
@@ -31,10 +33,17 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(!email || !password){
-            return;
+            console.log("email is " + email + ", password is " + password)
+            return toast.error("Incorrect Information, Please try again.");
         }
         dispatch(loginInitiate(email, password));
         setState({email: "", password: ""});
+
+        const data = {
+            email, password
+        };
+
+        loginUser(data);
     }
 
     const handleChange = (e) => {
@@ -44,6 +53,7 @@ const Login = () => {
 
     return (
         <div>
+        <ToastContainer />
             <div id="logreg-forms">
                 <form className="form-signin" onSubmit={handleSubmit}>
                     <h1 className="h3 mb-3 font-weight-normal" style={{ textAlign: "center"}}>
@@ -91,13 +101,13 @@ const Login = () => {
                         required
                     />
                     <button className="btn btn-secondary btn-block" type="submit">
-                        <i className="fas fa-sign-in-alt"></i> Sign In
+                        <i className="fas fa-sign-in-alt"></i>  Sign In
                     </button>
                     <hr/>
                     <p>Don't have an account?</p>
                     <Link to="/register">
                         <button className="btn btn-primary btn-block" type="button" id="btn-signup">
-                            <i className="fas fa-user-plus"></i>Sign up New Account
+                            <i className="fas fa-user-plus"></i> Sign up New Account
                         </button>
                     </Link>
                 </form>
